@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductService, Product } from '../services/product.service';
 import { ModalController } from '@ionic/angular';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-modal',
@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./product-modal.page.scss'],
 })
 export class ProductModalPage implements OnInit {
+  itemnameInput = new FormControl('', Validators.required);
 
   @Input() product: Product;
   isUpdate = false; // para macheck yung modal kung nagagamit para sa update o hindi
@@ -21,7 +22,7 @@ export class ProductModalPage implements OnInit {
   };
   constructor(
     private  modalCtrl: ModalController,
-    private service: ProductService
+    private service: ProductService,
   ) { }
 
   ngOnInit() {

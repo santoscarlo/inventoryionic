@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService, Product } from '../services/product.service';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController, LoadingController } from '@ionic/angular';
 import { ProductModalPage } from '../product-modal/product-modal.page';
 
 @Component({
@@ -13,23 +13,82 @@ export class ViewproductPage implements OnInit {
   constructor(
     private service: ProductService,
     private alertCtrl: AlertController,
-    private modalCtrl: ModalController
-  ) { }
+    private modalCtrl: ModalController,
+    private loadingController: LoadingController
+  ) {
+  // this.filterProductData(event);
+
+ }
+
+// async ionViewDidEnter(){
+//   const loadingwhileviewingProduct = await this.loadingController.create({
+//     duration: 2000,
+//   })
+//   await loadingwhileviewingProduct.present()
+// }
+// dismissLoadingAlert(){
+//   this.alertCtrl.dismiss()
+// }
+
 
   ngOnInit() {
+
     this.service.getAll().subscribe(response => {
     this.products = response;
     // console.log(response)
   })
+
+
   }
 
-  removeProduct(id: string){
+
+  // async clicToSlide(){
+  // const alert = await  this.alertCtrl.create({
+  //   header: 'Note',
+  //   message: 'Slide to choose',
+  //   buttons: [
+  //     {
+  //       text: 'Okay'
+  //     }
+  //   ]
+  //   })
+  //   await alert.present();
+  // }
+
+    filterProductData(event: any){
+      this.service.getAll().subscribe(res =>{
+        this.products = res;
+        const val = event.target.value;
+        if(val && val.trim() !== ''){
+          this.products = this.products.filter((product) => {
+            return (product.item_name.toLowerCase().indexOf(val.toLowerCase()) >-1)
+          })
+        }
+      })
+
+
+    }
+
+
+  // filterProductData(ev:any){
+  //     const val  = ev.target.value;
+  //     if(val && val.trim() !==''){
+  //       this.products = this.products.filter((product) => {
+  //         return (product.item_name.toLowerCase().indexOf(val.toLowerCase())>-1);
+  //       })
+  //     }else{
+  //       console.log('no data found')
+  //     }
+  // }
+
+
+async  removeProduct(id: string){
     // this.service.remove(id).subscribe(() =>{
     //   this.products = this.products.filter(std => std.id !== id)
     //   console.log(this.products)
     //   console.log(id)
     // })
-    this.alertCtrl.create({
+  const removealert = await  this.alertCtrl.create({
       header: 'Delete',
       message: 'Are you sure you want to delete?',
       buttons: [
@@ -42,7 +101,8 @@ export class ViewproductPage implements OnInit {
           }
         },{text: 'No'}
       ]
-    }).then(alertEl => alertEl.present())
+    })
+    await removealert.present()
     // console.log(id);
   }
 

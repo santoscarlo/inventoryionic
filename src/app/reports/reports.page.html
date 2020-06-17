@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+  		<ion-back-button defaultHref="/home">Back</ion-back-button>
+  	</ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar (ionInput)="filterProductData($event)"></ion-searchbar>
+</ion-header>
+<ion-content color="secondary">
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card>
+                <ion-card-header>
+                        <ion-card-title class="ion-text-center">
+                          Product Reports
+                        </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-list *ngFor="let product of products">
+                    <ion-item-sliding>
+                      <ion-item>
+                        <ion-button class="gen-button" color="secondary" (click)="clickmetoSlide()">{{ product.item_name}}</ion-button>
+                        <!-- {{ product.item_name}} -->
+                      </ion-item>
+                      <ion-item-options side="end">
+                          <ion-item-option color="primary" (click)="generateIn(product.id)">
+                            <ion-label>Generate In</ion-label>
+                          </ion-item-option>
+
+                          <ion-item-option color="secondary" (click)="generateOut(prodcut.id)">
+                              <ion-label>Generate Out</ion-label>
+                          </ion-item-option>
+                      </ion-item-options>
+
+                    </ion-item-sliding>
+                  </ion-list>
+                </ion-card-content>
+
+            </ion-card>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

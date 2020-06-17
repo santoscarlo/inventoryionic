@@ -1,43 +1,69 @@
 <ion-app>
   <ion-menu menuId="main-menu" content-id="main">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
+
+
+
     <ion-content>
-      <ion-list>
+      <div class="menu-header-bg"> </div>
+      <div class="header-content">
+        <img src="../assets/icon/arl.jpg" alt="">
+        <ion-label>
+          <h2>Carlo Santos</h2>
+          <p>Software Engineer</p>
+        </ion-label>
+      </div>
+      <div class="action-button">
         <ion-menu-toggle>
-          <ion-item routerLink="/viewproduct">
-            <ion-icon name="cart" slot="start"></ion-icon>
-            <ion-label>Product</ion-label>
-          </ion-item>
+          <ion-button routerLink="/viewproduct">
+            <ion-icon slot="start" name="add"></ion-icon>Sync
+          </ion-button>
         </ion-menu-toggle>
+      </div>
 
-        <ion-menu-toggle>
-          <ion-item routerLink="/viewproduct">
-            <ion-icon name="cart" slot="start"></ion-icon>
-            <ion-label>Synchonize</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
+        <ion-list class="menu-items" lines="none">
+          <ion-menu-toggle>
+            <ion-item routerLink="/viewproduct">
+              <ion-icon name="cart-outline" slot="start"></ion-icon>Products
+            </ion-item>
+          </ion-menu-toggle>
 
-<!--
-        <ion-item>
-          <ion-icon name="mail" slot="start"></ion-icon>
-          <ion-label>Inbox</ion-label>
-        </ion-item>
+          <ion-menu-toggle>
+            <ion-item routerLink="/cater">
+              <ion-icon name="briefcase-outline" slot="start"></ion-icon>Cater Item Out/In
+            </ion-item>
+          </ion-menu-toggle>
 
-        <ion-item>
-          <ion-icon name="mail" slot="start"></ion-icon>
-          <ion-label>Inbox</ion-label>
-        </ion-item>
+          <ion-menu-toggle>
+            <ion-item routerLink="/reports">
+              <ion-icon name="cloud-outline" slot="start"></ion-icon>Reports
+            </ion-item>
+          </ion-menu-toggle>
 
-        <ion-item>
-          <ion-icon name="mail" slot="start"></ion-icon>
-          <ion-label>Inbox</ion-label>
-        </ion-item> -->
-      </ion-list>
+        </ion-list>
     </ion-content>
   </ion-menu>
+
+  <!-- <ion-list>
+    <ion-menu-toggle>
+      <ion-item routerLink="/viewproduct">
+        <ion-icon name="cart" slot="start"></ion-icon>
+        <ion-label>Product</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item routerLink="/cater">
+        <ion-icon name="briefcase-outline" slot="start"></ion-icon>
+        <ion-label>Cater Item Out/In</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item routerLink="/reports">
+        <ion-icon name="cloud-outline" slot="start"></ion-icon>
+        <ion-label>Reports</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-list> -->
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

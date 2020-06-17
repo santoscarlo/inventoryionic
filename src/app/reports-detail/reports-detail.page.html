@@ -1,23 +1,19 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <ion-buttons slot="end">
-      <ion-button color="danger" (click)="closeModal()">
+      <ion-button color="danger" (click)="closeModalReportsDetail()">
         Close
       </ion-button>
     </ion-buttons>
-
   </ion-toolbar>
-</ion-header>
-
-
-
-<ion-content color="secondary">
-
   <ion-card>
     <ion-card-content>
-        <ion-title class="ion-text-center">{{ isUpdate ? 'Update': 'Add'}} Product</ion-title>
+        <ion-title class="ion-text-center">Generate Report (IN)</ion-title>
     </ion-card-content>
   </ion-card>
+</ion-header>
+
+<ion-content color="secondary">
 
   <ion-card>
     <ion-card-content>
@@ -25,20 +21,20 @@
         <form #f="ngForm" (ngSubmit)="onSubmit(f)">
           <ion-item>
             <ion-label position="floating">Product name: </ion-label>
-            <ion-input  [(ngModel)]="data.item_name" name = "item_name" ></ion-input>
+            <ion-input ></ion-input>
           </ion-item>
 
            <ion-item>
             <ion-label position="floating">Product Description: </ion-label>
-            <ion-input [(ngModel)]="data.item_desc" name="item_desc"></ion-input>
+            <ion-input ></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label position="floating">Product Count: </ion-label>
-            <ion-input type="number" [(ngModel)]="data.item_count" name="item_count"></ion-input>
+            <ion-input ></ion-input>
           </ion-item>
 
-          <ion-button fill="outline" expand="block" color="primary" class="ion-margin-top" type="submit">{{ isUpdate ? 'Update': 'Submit'}} now</ion-button>
+          <ion-button fill="outline" expand="block" color="primary" class="ion-margin-top" type="submit"> Export Now</ion-button>
         </form>
       </ion-col>
     </ion-card-content>

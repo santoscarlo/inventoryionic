@@ -22,8 +22,24 @@ const routes: Routes = [
     loadChildren: () => import('./product-modal/product-modal.module').then( m => m.ProductModalPageModule)
   },
   {
-    path: ':productId',
-    loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
+    path: 'cater',
+    loadChildren: () => import('./cater/cater.module').then( m => m.CaterPageModule)
+  },
+  {
+    path: 'cater-modal',
+    loadChildren: () => import('./cater-modal/cater-modal.module').then( m => m.CaterModalPageModule)
+  },
+  {
+    path: 'reports',
+    loadChildren: () => import('./reports/reports.module').then( m => m.ReportsPageModule)
+  },
+  {
+    path: 'reports-detail',
+    loadChildren: () => import('./reports-detail/reports-detail.module').then( m => m.ReportsDetailPageModule)
+  },
+  {
+    path: 'cate-modal-out',
+    loadChildren: () => import('./cate-modal-out/cate-modal-out.module').then( m => m.CateModalOutPageModule)
   },
 ];
 @NgModule({

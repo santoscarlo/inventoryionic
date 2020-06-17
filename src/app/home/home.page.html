@@ -1,20 +1,65 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu"><ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-title>Home</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+
+
+<ion-content color="secondary">
+
+<ion-row>
+  <ion-col>
+    <ion-card height="500" width="500" >
+      <ion-card-content *ngFor="let product of products" routerLink="/cater" >
+      <p class="ion-text-center">Item Out</p>
+          <h2 class="ion-text-center">{{product.totals | number: '1.2-2'}}</h2>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+
+  <ion-col>
+    <ion-card height="500" width="500" routerLink="/cater" >
+      <ion-card-content *ngFor="let productsin of productsins" >
+        <p class="ion-text-center">item In </p>
+        <h2 class="ion-text-center">{{productsin.totalin | number: '1.2-2'}}</h2>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+  <ion-col>
+    <ion-card height="500" >
+      <ion-card-content *ngFor="let product of products"  >
+      <p class="ion-text-center">Total</p>
+      <h2 class="ion-text-center">{{product.totals | number: '1.2-2'}}</h2>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+</ion-row>
+
+
+
+
+
+    <ion-card >
+      <ion-card-header>
+        <ion-card-title>Item's Chart</ion-card-title>
+        <ion-card-subtitle *ngFor="let product of products">
+         Obtained Item Count {{product.totals | number: '1.2-2'}}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+
+        <canvas id="myChart" width="100" height="100">
+              {{Chart}}
+        </canvas>
+
+      </ion-card-content>
+    </ion-card>
 
 </ion-content>

@@ -12,6 +12,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from './services/product.service';
+import { ProductinService } from './services/productin.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,8 @@ import { FormsModule } from '@angular/forms';
   providers: [
     StatusBar,
     SplashScreen,
-
+    ProductService,
+    ProductinService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
